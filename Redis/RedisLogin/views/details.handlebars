@@ -1,0 +1,67 @@
+<style>
+        button {
+        border-radius: 20px;
+        border: 1px solid #FF4B2B;
+        background-color: #FF4B2B;
+        color: #FFFFFF;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 0px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: transform 80ms ease-in;
+    }
+
+    button:active {
+        transform: scale(0.95);
+    }
+
+    button:focus {
+        outline: none;
+    }
+    .btn1{
+      padding: 0px;
+    }
+</style>
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#" class="logo_brand">
+            <h2>Redis</h3>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="./#">Home</a>
+              </li>
+              {{!-- <li class="nav-item">
+                <a class="nav-link" href="/user/add">Add User</a>
+              </li> --}}
+          </div>
+        </div>
+      </nav>
+</header>
+
+<body>
+  <div class="container" id="container">
+    <h1>{{user.id}}</h1>
+    <ul class="list-group">
+      <li class="list-group-item"><strong>Password: </strong>{{user.password}}</li>
+      <li class="list-group-item"><strong>Email: </strong>{{user.email}}</li>
+      <li class="list-group-item"><strong>Phone: </strong>{{user.phone}}</li>
+    </ul>
+    <br>
+
+    <a class="btn btn-primary pull-left" href="/admin"><b> Back</b></a>
+
+    <form method="POST" class="btn btn-danger pull-left" action="/admin/delete/{{user.id}}?_method=DELETE">
+      <input type="submit" class="btn btn-danger pull-left btn1" value="Delete">
+    </form>
+
+
+  </div>
+</body>

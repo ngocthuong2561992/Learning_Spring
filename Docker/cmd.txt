@@ -1,0 +1,80 @@
+mvn archetype:generate "-DgroupId=vn.itt" "-DartifactId=web_InSales" "-DarchetypeArtifactId=maven-archetype-webapp" "-DinteractiveMode=false"
+
+
+
+mvn install:install-file "-DgroupId=vn.itt "-DartifactId=jss" "-Dversion=4.2.5" "-Dpackaging=jar" "-Dfile=D:\Thuong\Project\Insotech\TLVN (VINATABA)\BackEnd\target\fmcg.jar"
+
+
+
+
+
+
+docker run -dp 3000:3001 getting-started
+
+
+[docker.io/docker/getting-started]
+
+https://hub.docker.com/repository/docker/toturial/getting-started
+
+docker tag getting-started toturial/getting-started
+
+
+docker push toturial/erictest:getting-started
+
+docker tag getting-started YOUR-USER-NAME/getting-started
+
+
+docker login -u ngocthuong2561992@gmail.com
+
+
+docker push toturial/erictest
+
+docker run -dp 3000:3000 toturial/getting-started
+
+docker login -u tutorial
+
+
+
+toturial
+
+
+docker push toturial/erictest
+
+
+
+docker push toturial/getting-started
+
+docker build -t toturial/getting-started
+
+docker push toturial/getting-started
+
+docker 
+
+
+
+
+
+docker logs -f 7b468d1e238c
+$ nodemon src/index.js
+[nodemon] 1.19.2
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching dir(s): *.*
+[nodemon] starting `node src/index.js`
+Using sqlite database at /etc/todos/todo.db
+Listening on port 3000
+
+
+docker exec -it 8519ab81d255 mysql 
+
+docker exec -it 8519ab81d255 mysql -p todos
+
+
+docker exec -it app-mysql-1 mysql -p todos
+
+
+docker run -d —name jenkins -p 8080:8080 -p 50000:50000 -v /User/pnthuong/Desktop/jenkins:/var/jenkins_home jenkins/jenkins:lts
+
+docker run -d --name jenkins -p 8080:8080 -p 50000:50000 -v /User/pnthuong/Desktop/jenkins:/var/jenkins_home jenkins/jenkins:lts
+
+
+

@@ -1,0 +1,83 @@
+<style>
+  .error{
+    color: red;
+    margin: 0;
+  }
+  button {
+      border-radius: 20px;
+      border: 1px solid #FF4B2B;
+      background-color: #FF4B2B;
+      color: #FFFFFF;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 0px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: transform 80ms ease-in;
+      position: absolute;
+      top: 260px;
+      left: 15%;
+  }
+
+  button:active {
+      transform: scale(0.95);
+  }
+
+  button:focus {
+      outline: none;
+  }
+  .btn1{
+      padding: 0px;
+  }
+  .btn2{
+    background-color: #FF4B2B;
+  }
+</style>
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#" class="logo_brand">
+            <h2>Redis</h3>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="./#">Home</a>
+              </li>
+              {{!-- <li class="nav-item">
+                <a class="nav-link" href="/user/add">Add User</a>
+              </li> --}}
+          </div>
+        </div>
+      </nav>
+</header>
+<body>
+  <div class="container" id="container">
+
+    <nav class="navbar navbar-default">
+
+      <a class="navbar-brand" href="#"><h2><b>Redis Form Administrator</h2></a>
+
+    </nav>
+
+    <h1>Search Users</h1>
+    {{#if error}} <p class="error">{{error}}</p>{{/if}}
+    <form class="form-inline" method="POST" action="/admin/search">
+      <div class="form-group">
+        <input type="text" name="id" class="form-control" placeholder="Search Users By UserName">
+      </div>
+      <br>
+      <input type="submit" class="btn btn-primary pull-left" value="Search">
+      <a class="btn btn-default pull-left btn2" href="/"><b> Log out</b></a>
+    </form>
+    <br>
+
+  </div>
+</body>
+
+
+

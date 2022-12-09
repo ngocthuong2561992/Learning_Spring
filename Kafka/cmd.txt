@@ -1,0 +1,32 @@
+
+C:\kafka
+
+# Start the ZooKeeper service
+bin\windows\zookeeper-server-start.bat config\zookeeper.properties
+
+# Start the Kafka broker service
+bin\windows\kafka-server-start.bat config\server.properties
+
+
+
+
+STEP 3: CREATE A TOPIC TO STORE YOUR EVENTS
+bin\windows\kafka-topics.bat --create --topic quickstart-events --bootstrap-server localhost:9092
+
+
+
+
+
+
+STEP 4: WRITE SOME EVENTS INTO THE TOPIC
+bin\windows\kafka-console-producer.bat --topic quickstart-events --bootstrap-server localhost:9092
+
+
+STEP 5: READ THE EVENTS
+bin\windows\kafka-console-consumer.bat --topic quickstart-events --from-beginning --bootstrap-server localhost:9092
+
+
+
+
+
+rm -rf \tmp\kafka-logs \tmp\zookeeper \tmp\kraft-combined-logs
