@@ -1,0 +1,41 @@
+server:
+  port: 9094
+  servlet.context-path: /multidb
+  undertow.max-http-post-size: 0
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+    org.springframework.web.FilterChainProxy: DEBUG
+    org.springframework.web.client.RestTemplate: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.boot.autoconfigure: INFO
+
+spring:
+  application.name: multidb
+  main.allow-bean-definition-overriding: true
+  thymeleaf:
+    cache: false
+    check-template-location: true
+    mode: HTML
+    prefix: classpath:/templates/
+    suffix: .html
+    template-resolver-order: 1
+  jackson.default-property-inclusion: non_absent
+  jpa:
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+
+app.datasource.sakila.url: jdbc:mysql://localhost:3306/sakila
+app.datasource.sakila.username: root
+app.datasource.sakila.password: 123456
+
+app.datasource.employee.url: jdbc:mysql://localhost:3306/employees
+app.datasource.employee.username: root
+app.datasource.employee.password: 123456
+
+app.datasource.mongo-local.url: mongodb://localhost:27017
+app.datasource.mongo-local.database: test
+app.datasource.mongo-local.username:
+app.datasource.mongo-local.password:

@@ -1,0 +1,19 @@
+server:
+  port: 9096
+  servlet.context-path: /activemq
+  undertow.max-http-post-size: 0
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+    org.springframework.web.FilterChainProxy: DEBUG
+    org.springframework.web.client.RestTemplate: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.boot.autoconfigure: INFO
+
+spring:
+  application.name: activemq
+  main.allow-bean-definition-overriding: true
+  jackson.default-property-inclusion: non_absent
+  jms.listener.auto-startup: true

@@ -1,0 +1,40 @@
+server:
+  port: 9194
+  servlet.context-path: /replicadb
+  undertow.max-http-post-size: 0
+spring:
+  application.name: replicadb
+  main.allow-bean-definition-overriding: true
+  profiles:
+    active: dev
+  jackson.default-property-inclusion: non_absent
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDB103Dialect
+#        generate_statistics: true
+        jdbc.batch_size: 1000
+        order_inserts: true
+        order_updates: true
+        use-new-id-generator-mappings: true
+
+app.datasource.master.jdbcUrl: jdbc:mariadb://localhost:3308/sakila
+app.datasource.master.username: root
+app.datasource.master.password: 123456
+app.datasource.master.driverClassName: org.mariadb.jdbc.Driver
+
+app.datasource.replica.jdbcUrl: jdbc:mariadb://localhost:3309/sakila
+app.datasource.replica.username: root
+app.datasource.replica.password: 123456
+app.datasource.replica.driverClassName: org.mariadb.jdbc.Driver
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+    org.springframework.web.FilterChainProxy: DEBUG
+    org.springframework.web.client.RestTemplate: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.boot.autoconfigure: INFO
+

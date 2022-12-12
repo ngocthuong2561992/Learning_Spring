@@ -1,0 +1,40 @@
+server:
+  port: 9093
+  servlet.context-path: /multidatasource
+  undertow.max-http-post-size: 0
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+    org.springframework.web.FilterChainProxy: DEBUG
+    org.springframework.web.client.RestTemplate: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.boot.autoconfigure: INFO
+
+spring:
+  application.name: multidatasource
+  main.allow-bean-definition-overriding: true
+  thymeleaf:
+    cache: false
+    check-template-location: true
+    mode: HTML
+    prefix: classpath:/templates/
+    suffix: .html
+    template-resolver-order: 1
+  jpa:
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+  jackson.default-property-inclusion: non_absent
+
+app.datasource.realdb.url: jdbc:mysql://52.197.35.82/b_monster?useSSL=false
+app.datasource.realdb.username: b_monster_pl
+app.datasource.realdb.password: h6L7_xqc
+
+app.datasource.sakila.url: jdbc:mysql://localhost:3306/sakila
+app.datasource.sakila.username: root
+app.datasource.sakila.password: 123456
+
+app.datasource.employee.url: jdbc:mysql://localhost:3306/employees
+app.datasource.employee.username: root
+app.datasource.employee.password: 123456

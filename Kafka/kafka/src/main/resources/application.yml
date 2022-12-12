@@ -1,0 +1,27 @@
+server:
+  port: 9195
+  servlet.context-path: /kafka
+  undertow.max-http-post-size: 0
+spring:
+  application.name: kafka
+  main.allow-bean-definition-overriding: true
+  profiles.active: dev
+  jackson.default-property-inclusion: non_absent
+
+spring.kafka.bootstrap-servers: localhost:8097
+topic.string: TOPIC_STRING
+topic.long.message: longMessage
+topic.greeting: TOPIC_GREETING
+topic.multiType: TOPIC_MULTI_TYPE
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+    org.springframework.web.FilterChainProxy: DEBUG
+    org.springframework.web.client.RestTemplate: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.boot.autoconfigure: INFO
+    org.hibernate.SQL: DEBUG
+#    org.hibernate.type.descriptor.sql: trace
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE

@@ -1,0 +1,18 @@
+server:
+  port: 9192
+  servlet.context-path: /multithread
+  undertow.max-http-post-size: 0
+spring:
+  application.name: multithread
+  main.allow-bean-definition-overriding: true
+  profiles:
+    active: dev
+
+#logging:
+#  level:
+#    root: INFO
+#    org.springframework.web: DEBUG
+#    org.springframework.web.FilterChainProxy: DEBUG
+#    org.springframework.web.client.RestTemplate: DEBUG
+#    org.springframework.security: DEBUG
+#    org.springframework.boot.autoconfigure: INFO

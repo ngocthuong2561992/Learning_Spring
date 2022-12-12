@@ -1,0 +1,37 @@
+server:
+  port: 9093
+  servlet.context-path: /h2
+  undertow.max-http-post-size: 0
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+    org.springframework.web.FilterChainProxy: DEBUG
+    org.springframework.web.client.RestTemplate: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.boot.autoconfigure: INFO
+spring:
+  profiles:
+    active: dev
+  application.name: h2
+  main.allow-bean-definition-overriding: true
+  thymeleaf:
+    cache: false
+    check-template-location: true
+    mode: HTML
+    prefix: classpath:/templates/
+    suffix: .html
+    template-resolver-order: 1
+  jackson.default-property-inclusion: non_absent
+  jpa:
+    database: default
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true

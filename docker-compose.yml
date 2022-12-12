@@ -1,0 +1,83 @@
+version: '2'
+volumes:
+  static-share-volume:
+    external: true
+networks:
+  app-tier:
+    driver: bridge
+services:
+  zookeeper:
+    image: 'bitnami/zookeeper:latest'
+    ports:
+      - '2181:2181'
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+#  - KAFKA_BROKER_ID=1
+#  - ALLOW_PLAINTEXT_LISTENER=yes
+#  - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+#  - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092
+#  - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://127.0.0.1:9092
+  kafka:
+    image: 'bitnami/kafka:latest'
+    ports:
+      - '8097:8097'
+    depends_on:
+      - zookeeper
+    environment:
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CLIENT:PLAINTEXT,EXTERNAL:PLAINTEXT
+      - KAFKA_CFG_LISTENERS=CLIENT://:9092,EXTERNAL://:8097
+      - KAFKA_CFG_ADVERTISED_LISTENERS=CLIENT://localhost:9092,EXTERNAL://localhost:8097
+      - KAFKA_CFG_INTER_BROKER_LISTENER_NAME=CLIENT
+#  myapp:
+#    image: 'YOUR_APPLICATION_IMAGE'
+#    networks:
+#      - app-tier
+#  spring-aop:
+#    build:
+#      context: spring-aop
+#      dockerfile: Dockerfile
+#    container_name: spring-aop
+#    image: spring-aop:jack
+#    ports:
+#      - "9190:9190"
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=dev
+##    networks:
+##      - spring-cloud-network
+#
+  h2database:
+    build:
+      context: h2database
+      dockerfile: Dockerfile
+    container_name: h2database
+    image: h2database:jack
+    ports:
+      - "9093:9093"
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+
+#  itext:
+#    build:
+#      context: itext
+#      dockerfile: Dockerfile
+#    container_name: itext
+#    image: itext:jack
+#    ports:
+#      - "9091:9091"
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=dev
+#    volumes:
+#      - static-share-volume:/static-volume
+
+#  mysql:
+#    build:
+#      context: mysql
+#      dockerfile: Dockerfile
+#    container_name: mysql
+#    image: mysql:jack
+#    ports:
+#      - "9097:9097"
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=dev

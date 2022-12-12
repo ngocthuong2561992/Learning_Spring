@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" th:href="@{/images/favicon.ico}">
+	<title></title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<script type="text/javascript" th:src="@{/extjs/ext-all.js}"></script>
+	<script type="text/javascript" th:src="@{/extjs/theme-gray/theme-gray.js}"></script>
+	<link rel="stylesheet" th:href="@{/extjs/themes-testcenter/themes-testcenter-all.css}" />
+
+	<script type="text/javascript">
+		const CONTEXT_PATH = [[@{/}]];
+	</script>
+
+	<script type="text/javascript" th:src="@{/js/common/Common.js}"></script>
+	<script type="text/javascript" th:src="@{/js/common/commonUtil.js}"></script>
+	<script type="text/javascript" th:src="@{/js/common/component.js}"></script>
+	<script type="text/javascript" th:src="@{/js/common/customComponent/TreeComboClass.js}"></script>
+	<script type="text/javascript" th:src="@{/js/common/customComponent/TreeComboMulti.js}"></script>
+	<script type="text/javascript" th:src="@{/js/common/customComponent/TreeComboSingle.js}"></script>
+	<script type="text/javascript" th:src="@{/js/common/customComponent/TreeComboTestType.js}"></script>
+
+</head>
+<body>
+	<script type="text/javascript">
+		var globaleContainer;
+		Ext.Loader.setPath('ext', CONTEXT_PATH + 'js/app');
+		Ext.require(['ext.*']);
+
+		Ext.onReady(function(){
+			globaleContainer = Ext.create('ext.View', {
+				renderTo: Ext.getBody()
+			});
+			var width = Ext.getBody().getViewSize().width;
+		    var height = Ext.getBody().getViewSize().height;
+			globaleContainer.setSize(width, height);
+			// auto resize
+			Ext.EventManager.onWindowResize(function(){
+				var width = Ext.getBody().getViewSize().width;
+			    var height = Ext.getBody().getViewSize().height;
+				globaleContainer.setSize(width, height);
+			});
+		});
+	</script>
+
+</body>
+
+</html>

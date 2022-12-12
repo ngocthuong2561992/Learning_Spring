@@ -1,0 +1,23 @@
+type CityEntity {
+    cityId: ID!
+    city: String
+    lastUpdate: String
+    country: CountryEntity!
+}
+
+type CountryEntity {
+    countryId: ID!
+    country: String
+    lastUpdate: String
+    cities: [CityEntity]!
+}
+
+# The Root Query for the application
+type Query {
+    findCity(city: String): [CityEntity]!
+}
+
+# The Root Mutation for the application
+#type Mutation {
+#    createPost(title: String!, text: String!, category: String, authorId: String!) : Post!
+#}

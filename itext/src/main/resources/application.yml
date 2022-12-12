@@ -1,0 +1,27 @@
+server:
+  port: 9091
+  servlet.context-path: /itext
+  undertow.max-http-post-size: 0
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+    org.springframework.web.FilterChainProxy: DEBUG
+    org.springframework.web.client.RestTemplate: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.boot.autoconfigure: INFO
+
+spring:
+  application.name: itext
+  main.allow-bean-definition-overriding: true
+  thymeleaf:
+    cache: false
+    check-template-location: true
+    mode: HTML
+    prefix: classpath:/templates/
+    suffix: .html
+    template-resolver-order: 1
+  jackson.default-property-inclusion: non_absent
+  profiles:
+    active: dev
