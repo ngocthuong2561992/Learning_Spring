@@ -1,0 +1,30 @@
+server:
+  port: 8086
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: false
+      javax:
+        persistence:
+          validation:
+            mode: none
+    defer-datasource-initialization: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/creditdb
+    username: root
+    password: root
+
+grpc:
+  server:
+    port: 6566
+  client:
+    user-service:
+      address: static://localhost:6565
+      negotiationType: plainText
+    debit-service:
+      address: static://localhost:6567
+      negotiationType: plainText

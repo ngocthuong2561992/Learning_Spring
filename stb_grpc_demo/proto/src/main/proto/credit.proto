@@ -1,0 +1,31 @@
+syntax = "proto3";
+import "common.proto";
+option java_multiple_files  =true;
+option java_package  = "com.stb.credit";
+
+service CreditAccountService{
+  rpc creditAccount(CreditAccountRequest) returns (CreditAccountResponse);
+}
+
+message CreditAccountRequest {
+  string from_account_id = 1;
+  string to_bank_name = 2;
+  string to_account_name = 3;
+  string to_account_number = 4;
+  double amount = 5;
+  string description = 6;
+  TransferMethod method = 7;
+}
+
+enum TransferMethod {
+  INSTANT = 0;
+  NAPAS = 1;
+}
+
+message CreditAccountResponse {
+  string transaction_id = 1;
+  string ref_id = 2;
+  string status = 3;
+
+  common.Error error = 4;
+}

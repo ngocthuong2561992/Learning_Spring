@@ -1,0 +1,16 @@
+syntax = "proto3";
+option java_multiple_files  =true;
+option java_package  = "com.stb.common";
+package common;
+
+enum Genre{
+  DRAMA = 0;
+  ACTION =1;
+  CRIME =2;
+  WESTERN =3;
+}
+
+message Error {
+  string errCode = 1;
+  string errMessage = 2;
+}

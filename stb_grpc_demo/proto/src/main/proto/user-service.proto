@@ -1,0 +1,25 @@
+syntax = "proto3";
+import "common.proto";
+option java_multiple_files  =true;
+option java_package  = "com.stb.user";
+
+service UserService{
+  rpc getUser(GetUserRequest) returns (GetUserResponse);
+}
+
+message GetUserRequest {
+    UserBank user = 1;
+}
+
+message GetUserResponse {
+    UserBank user = 1;
+    common.Error error = 2;
+}
+
+message UserBank {
+  optional string id = 1;
+  optional string account_name = 2;
+  optional string account_number = 3;
+  optional string bank_name = 4;
+  optional string gender = 5;
+}

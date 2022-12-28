@@ -1,0 +1,35 @@
+syntax = "proto3";
+import "common.proto";
+option java_multiple_files  =true;
+option java_package  = "com.stb.debit";
+
+message DebitAccountInfoRequest{
+  string account_id = 1;
+}
+message DebitAccountInfoResponse{
+  string account_id = 1;
+  double current_balance = 2;
+  common.Error error = 3;
+}
+
+message DebitAccountInfoUpdateRequest{
+  string account_id = 1;
+  double debit_amount = 2;
+}
+
+message CreditMoneyRequest {
+  string account_id = 1;
+  double credit_amount = 2;
+}
+
+message CreditMoneyResponse {
+  string account_id = 1;
+  double current_balance = 2;
+  common.Error error = 3;
+}
+
+service DebitAccountService{
+  rpc getAccountInfo(DebitAccountInfoRequest) returns (DebitAccountInfoResponse);
+  rpc debitMoney(DebitAccountInfoUpdateRequest) returns(DebitAccountInfoResponse);
+  rpc creditMoney(CreditMoneyRequest) returns(CreditMoneyResponse);
+}
