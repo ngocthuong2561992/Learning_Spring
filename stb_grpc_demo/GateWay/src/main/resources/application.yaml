@@ -1,13 +1,13 @@
 grpc:
   client:
     user-service:
-      address: static://localhost:6562
+      address: static://localhost:6565
       negotiationType: plainText
     credit-service:
       address: static://localhost:6566
       negotiationType: plainText
     debit-service:
-      address: static://localhost:6561
+      address: static://localhost:6567
       negotiationType: plainText
 server:
   port: 8088
